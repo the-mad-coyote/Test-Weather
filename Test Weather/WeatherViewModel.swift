@@ -15,6 +15,7 @@ class WeatherViewModel {
     // Исправлено: изолируем свойства и функции изменения UI на Главном потоке (@MainActor).
     // Это критически важно для предотвращения падений и корректной работы Swift 6 Concurrency.
     @MainActor var temperature: Double?
+    @MainActor var humidity: Double?
     @MainActor var isLoading = false
     @MainActor var error: String?
     
@@ -26,6 +27,7 @@ class WeatherViewModel {
         do {
             let weather = try await weatherService.fetchWeather()
             temperature = weather.temperature
+            humidity = weather.relativeHumidity
         } catch {
             self.error = error.localizedDescription
         }

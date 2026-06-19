@@ -14,9 +14,11 @@ struct WeatherResponse: Codable {
 
 struct CurrentWeather: Codable {
     let temperature: Double
+    let relativeHumidity: Double
     
     // MARK: - Кодирование с использованием CodingKeys для соответствия API
     enum CodingKeys: String, CodingKey {
         case temperature = "temperature_2m"
+        case relativeHumidity = "relative_humidity_2m"
     }
 }

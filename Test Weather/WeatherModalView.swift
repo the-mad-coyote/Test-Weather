@@ -24,13 +24,33 @@ struct WeatherModalView: View {
             if viewModel.isLoading {
                 ProgressView()
                     .scaleEffect(1.5)
-            } else if let temperature = viewModel.temperature {
+            } else if let temperature = viewModel.temperature, let humidity = viewModel.humidity {
                 VStack(spacing: 12) {
-                    Text("Текущая температура")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                    Text("\(temperature, format: .number.precision(.fractionLength(1)))°C")
-                        .font(.system(size: 64, weight: .bold, design: .rounded))
+                    // Temperature Section
+                    VStack(spacing: 4) {
+                        Text("Текущая температура")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        
+                        Text("\(temperature, format: .number.precision(.fractionLength(1)))°C")
+                            .font(.system(size: 64, weight: .bold, design: .rounded))
+                    }
+                    
+                    // Humidity Section
+                    VStack(spacing: 4) {
+                        Text("Влажность")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        
+                        HStack(spacing: 4) {
+                            Image(systemName: "humidity.fill") // Water drop icon
+                                .font(.system(size: 20))
+                                .foregroundColor(.blue)
+                            
+                            Text("\(humidity, format: .number.precision(.fractionLength(0)))%")
+                                .font(.system(size: 24, weight: .semibold))
+                        }
+                    }
                 }
             } else if let error = viewModel.error {
                 VStack(spacing: 10) {
