@@ -16,15 +16,22 @@ struct ContentView: View {
         VStack {
             Spacer()
             
+            // На входе пишем полное официальное имя со штатом
+            let targetLocation = "San Jose, California"
+
+            // Магия Swift: делим строку по запятой и берем только первое слово ("San Francisco")
+            let shortCityName = targetLocation.components(separatedBy: ",").first ?? targetLocation
+
             VStack(spacing: 16) {
-                Image(systemName: "sun.max.fill")
-                    .font(.system(size: 60))
-                    .foregroundStyle(.orange)
+                // 1. Гербу отдаем ПОЛНОЕ имя, чтобы Википедия точно нашла нужный штат
+                DynamicCitySealImage(cityName: targetLocation)
                 
-                Text("Погода в Сан-Хосе")
+                // 2. Пользователю показываем КРАСИВОЕ короткое имя без мусора ("Weather in San Francisco")
+                Text("Weather in \(shortCityName)")
                     .font(.title)
                     .fontWeight(.bold)
             }
+
             
             Spacer()
             
@@ -41,10 +48,9 @@ struct ContentView: View {
                     .shadow(color: .blue.opacity(0.3), radius: 8, x: 0, y: 4)
             }
             .sheet(isPresented: $isSheetPresented) {
-                // Исправлено: передаем только чистый viewModel
                 WeatherModalView(viewModel: viewModel)
-                    .presentationDetents([.medium]) // Шторка открывается на половину экрана (улучшает UX)
-                    .presentationDragIndicator(.visible) // Добавляет индикатор полоски для свайпа закрытия
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
             }
         }
         .padding(.bottom, 50)
