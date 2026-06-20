@@ -19,6 +19,20 @@ class WeatherViewModel {
     @MainActor var isLoading = false
     @MainActor var error: String?
     
+    // Состояние для переключения единиц измерения
+    @MainActor var isCelsius = true
+    
+    // Вычисляемое свойство для отображения температуры в текущей единице измерения
+    var displayTemperature: Double? {
+        guard let temp = temperature else { return nil }
+        return isCelsius ? temp : (temp * 9.0 / 5.0) + 32.0
+    }
+    
+    // Метод для переключения единиц измерения
+    func toggleTemperatureUnit() {
+        isCelsius.toggle()
+    }
+    
     @MainActor
     func fetchWeather() async {
         isLoading = true

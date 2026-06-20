@@ -24,7 +24,7 @@ struct WeatherModalView: View {
             if viewModel.isLoading {
                 ProgressView()
                     .scaleEffect(1.5)
-            } else if let temperature = viewModel.temperature, let humidity = viewModel.humidity {
+            } else if let displayTemp = viewModel.displayTemperature, let humidity = viewModel.humidity {
                 VStack(spacing: 12) {
                     // Temperature Section
                     VStack(spacing: 4) {
@@ -32,8 +32,11 @@ struct WeatherModalView: View {
                             .font(.headline)
                             .foregroundColor(.secondary)
                         
-                        Text("\(temperature, format: .number.precision(.fractionLength(1)))°C")
+                        Text("\(displayTemp, format: .number.precision(.fractionLength(1)))\(viewModel.isCelsius ? "°C" : "°F")")
                             .font(.system(size: 64, weight: .bold, design: .rounded))
+                            .onTapGesture {
+                                viewModel.toggleTemperatureUnit()
+                            }
                     }
                     
                     // Humidity Section
