@@ -14,6 +14,8 @@ A lightweight, high-performance SwiftUI pet application that demonstrates modern
 - Upgrade WeatherViewModel with @observable and @mainactor to manage search states
 - Implement a full-width .searchable interface and city list overlay in ContentView
 - Fix dynamic city seal reloading by updating DynamicCitySealImage to use .task(id:)
+<img width="1179" height="2556" alt="IMG_7174" src="https://github.com/user-attachments/assets/fe22f4e3-51f7-437c-bde7-cb3bcc79c6db" />
+<img width="1179" height="2556" alt="IMG_7173" src="https://github.com/user-attachments/assets/ea3702d6-a0fe-438c-8be5-2093657795d8" />
 
 
 
