@@ -6,7 +6,18 @@ A lightweight, high-performance SwiftUI pet application that demonstrates modern
 
 ## Release History
 
-### v1.2.0 (Latest Release)
+### v1.3.0 (Latest Release)
+**Add dynamic city search and geocoding integration**
+- Introduce GeocodingService using Open-Meteo API to resolve city names to coordinates
+- Implement Codable Location and GeocodingResponse models
+- Refactor WeatherService to accept dynamic latitude and longitude parameters
+- Upgrade WeatherViewModel with @observable and @mainactor to manage search states
+- Implement a full-width .searchable interface and city list overlay in ContentView
+- Fix dynamic city seal reloading by updating DynamicCitySealImage to use .task(id:)
+
+
+
+### v1.2.0 
 **Dynamic city seal with disk caching**
 - Implemented `DynamicCitySealViewModel` using modern SwiftUI `@Observable` macro to fetch official city seals from Wikipedia.
 - Created `ImageCacheManager` with `FileManager` to store images on disk inside the application Sandbox.
