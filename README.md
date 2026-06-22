@@ -18,11 +18,16 @@ A lightweight, high-performance SwiftUI pet application that demonstrates modern
   <table align="center">
   <tr>
     <td align="center">
+      <img src="https://github.com/user-attachments/assets/ea3702d6-a0fe-438c-8be5-2093657795d8" width="300" alt="">
+    </td>
+    <td align="center">
       <img src="https://github.com/user-attachments/assets/fe22f4e3-51f7-437c-bde7-cb3bcc79c6db" width="300" alt="">
     </td>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/ea3702d6-a0fe-438c-8be5-2093657795d8" width="300" alt="">
+      <img src="https://github.com/user-attachments/assets/0e761ce3-7bd4-4179-9f68-50c0177e0172" width="300" alt="">
     </td>
+
+
   </tr>
 </table>
 
